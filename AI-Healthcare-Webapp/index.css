@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-gray-50 to-gray-100;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-xl;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
+}
+
+.feature-card {
+  @apply relative overflow-hidden rounded-2xl p-6 glass-card hover:shadow-2xl transition-all duration-300 hover:-translate-y-1;
+}
+
+.feature-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 transition-opacity duration-300;
+}
+
+.feature-card:hover::before {
+  @apply opacity-100;
+}
